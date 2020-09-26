@@ -10,12 +10,16 @@ public class User {
     private String username;
     private String password;
     private String passwordConfirm;
-
-    @ManyToMany
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+    public User(){}
 
+    public User(String username, String password, String passwordConfirm, Set<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.passwordConfirm = passwordConfirm;
+        this.roles = roles;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -52,6 +56,8 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     public Set<Role> getRoles() {
         return roles;
     }
