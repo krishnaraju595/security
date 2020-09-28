@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import io.github.hengyunabc.sample.model.User;
+import io.github.hengyunabc.sample.model.Employee;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -18,13 +18,13 @@ public class UserServiceImpl implements UserService {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Override
-	public void save(User user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		userRepository.save(user);
+	public void save(Employee employee) {
+		employee.setPassword(bCryptPasswordEncoder.encode(employee.getPassword()));
+		userRepository.save(employee);
 	}
 
 	@Override
-	public User findByUsername(String username) {
+	public Employee findByUsername(String username) {
 		return userRepository.findByUsername(username);
 	}
 }

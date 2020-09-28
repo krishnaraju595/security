@@ -1,9 +1,9 @@
 package io.github.hengyunabc.sample.service;
 
-import io.github.hengyunabc.sample.model.User;
+import io.github.hengyunabc.sample.model.Employee;
 
 public interface UserService {
-    void save(User user);
+    void save(Employee employee);
 
-    User findByUsername(String username);
+    Employee findByUsername(String username);
 }

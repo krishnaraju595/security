@@ -1,6 +1,6 @@
 package io.github.hengyunabc.sample;
 
-import io.github.hengyunabc.sample.model.User;
+import io.github.hengyunabc.sample.model.Employee;
 import io.github.hengyunabc.sample.service.UserService;
 import io.github.hengyunabc.sample.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,20 +25,20 @@ public class MainController {
 
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String registration(Model model) {
-		model.addAttribute("userForm", new User());
+		model.addAttribute("userForm", new Employee());
 
 		return "registration";
 	}
 
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-		userValidator.validate(userForm, bindingResult);
+	public String registration(@ModelAttribute("userForm") Employee employeeForm, BindingResult bindingResult, Model model) {
+		userValidator.validate(employeeForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {
 			return "registration";
 		}
 
-		userService.save(userForm);
+		userService.save(employeeForm);
 
 		return "redirect:/welcome";
 	}

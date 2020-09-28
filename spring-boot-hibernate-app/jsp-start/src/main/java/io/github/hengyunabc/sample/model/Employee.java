@@ -4,17 +4,17 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "employee")
+public class Employee {
     private Long id;
     private String username;
     private String password;
     private String passwordConfirm;
     private Set<Role> roles;
 
-    public User(){}
+    public Employee(){}
 
-    public User(String username, String password, String passwordConfirm, Set<Role> roles) {
+    public Employee(String username, String password, String passwordConfirm, Set<Role> roles) {
         this.username = username;
         this.password = password;
         this.passwordConfirm = passwordConfirm;

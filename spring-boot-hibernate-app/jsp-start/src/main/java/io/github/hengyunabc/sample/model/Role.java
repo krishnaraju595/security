@@ -9,7 +9,7 @@ import java.util.Set;
 public class Role {
     private Long id;
     private String name;
-    private Set<User> users;
+    private Set<Employee> employees;
 
     public Role(){}
 
@@ -32,11 +32,11 @@ public class Role {
     }
 
     @ManyToMany(mappedBy = "roles")
-    public Set<User> getUsers() {
-        return users;
+    public Set<Employee> getEmployees() {
+        return employees;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 }
